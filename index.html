@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>星座年齡幸運卡通人物心理測驗</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="quiz-panel" aria-label="心理測驗">
+        <div class="star-sky" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+
+        <div class="intro">
+          <p class="eyebrow">Zodiac x Age x Cartoon Luck</p>
+          <h1>星座年齡幸運卡通人物心理測驗</h1>
+          <p class="note">收錄 1980s 到 2020s 的經典卡通角色，台詞為角色精神延伸的原創打氣句。</p>
+        </div>
+
+        <form id="quizForm" class="quiz-form">
+          <div class="field-row">
+            <label>
+              <span>星座</span>
+              <select id="zodiac" required>
+                <option value="aries">牡羊座</option>
+                <option value="taurus">金牛座</option>
+                <option value="gemini">雙子座</option>
+                <option value="cancer">巨蟹座</option>
+                <option value="leo">獅子座</option>
+                <option value="virgo">處女座</option>
+                <option value="libra">天秤座</option>
+                <option value="scorpio">天蠍座</option>
+                <option value="sagittarius">射手座</option>
+                <option value="capricorn">摩羯座</option>
+                <option value="aquarius">水瓶座</option>
+                <option value="pisces">雙魚座</option>
+              </select>
+            </label>
+            <label>
+              <span>年齡</span>
+              <input id="age" type="number" min="5" max="99" value="28" required />
+            </label>
+          </div>
+
+          <fieldset>
+            <legend>今天最想補充哪一種能量？</legend>
+            <div class="options">
+              <label><input type="radio" name="energy" value="brave" checked /> 勇氣</label>
+              <label><input type="radio" name="energy" value="soft" /> 安心</label>
+              <label><input type="radio" name="energy" value="spark" /> 靈感</label>
+              <label><input type="radio" name="energy" value="focus" /> 專注</label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>遇到卡關時，你最像哪一種反應？</legend>
+            <div class="options">
+              <label><input type="radio" name="reaction" value="run" checked /> 先衝再修正</label>
+              <label><input type="radio" name="reaction" value="think" /> 先想清楚路線</label>
+              <label><input type="radio" name="reaction" value="team" /> 找人一起破關</label>
+              <label><input type="radio" name="reaction" value="dream" /> 換個角度想像</label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>你希望幸運角色今天替你守護什麼？</legend>
+            <div class="options">
+              <label><input type="radio" name="wish" value="work" checked /> 工作學業</label>
+              <label><input type="radio" name="wish" value="love" /> 人際感情</label>
+              <label><input type="radio" name="wish" value="money" /> 金錢選擇</label>
+              <label><input type="radio" name="wish" value="health" /> 身心狀態</label>
+            </div>
+          </fieldset>
+
+          <button type="submit" class="primary-btn">抽出我的幸運角色</button>
+        </form>
+      </section>
+
+      <section class="result-panel" aria-label="測驗結果">
+        <div id="resultCard" class="result-card">
+          <div class="character-orbit">
+            <div id="characterBadge" class="character-badge">★</div>
+          </div>
+          <div class="result-copy">
+            <p id="resultEra" class="eyebrow dark">等待測驗</p>
+            <h2 id="resultName">你的幸運卡通人物會出現在這裡</h2>
+            <p id="resultMeta" class="meta">選擇星座與年齡後開始測驗。</p>
+            <blockquote id="resultQuote">今天的宇宙還在洗牌，輪到你按下開始。</blockquote>
+            <dl class="lucky-list">
+              <div><dt>幸運色</dt><dd id="luckyColor">--</dd></div>
+              <div><dt>幸運物</dt><dd id="luckyItem">--</dd></div>
+              <div><dt>今日關鍵字</dt><dd id="keyword">--</dd></div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section class="collection" aria-label="角色圖鑑">
+        <div class="collection-head">
+          <div>
+            <p class="eyebrow dark">Character Deck</p>
+            <h2>經典卡通幸運角色圖鑑</h2>
+          </div>
+          <div class="filter-buttons" aria-label="依年代篩選">
+            <button type="button" data-era="all" class="active">全部</button>
+            <button type="button" data-era="1980s">1980s</button>
+            <button type="button" data-era="1990s">1990s</button>
+            <button type="button" data-era="2000s">2000s</button>
+            <button type="button" data-era="2010s">2010s</button>
+            <button type="button" data-era="2020s">2020s</button>
+          </div>
+        </div>
+        <div id="characterGrid" class="character-grid"></div>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
